@@ -7,6 +7,12 @@ Generating maps and timelines from image metadata.
 ## Dependencies
 
 
+## Usage
+**Starting the server ** (Requires node)
+
+Navigate to \src\main\web\js, and run `node server.js`.
+
+
 ## Team Members
 
 **Caleb Chesley**  
