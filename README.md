@@ -8,13 +8,18 @@ Generating maps and timelines from image metadata.
 
 
 #### Map
-**node.js**
+**Node.js**
 
-**react.js**
-`npm install --save react react-dom`
 
-**babel.js**
-`npm install --save-dev babel-cli`
+**React.js**
+
+
+**Babel.js**
+
+
+**Webpack**
+
+
 
 ## Usage
 **Starting the server** (Requires node)

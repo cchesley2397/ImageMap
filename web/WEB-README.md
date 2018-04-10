@@ -7,7 +7,7 @@ Commands are assumed to be run from the /ImageMap/web/ directory.
 ## Running the included webserver
 
 ```
-node ./js/server.js
+npm run server
 ```
 
 Navigate to **http://localhost:8080"
@@ -20,10 +20,7 @@ Run:
 ```
 npm run build
 ```
-or,
-```
-npx webpack
-```
+
 
 
 
