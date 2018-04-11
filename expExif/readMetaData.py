@@ -1,6 +1,6 @@
 import PIL.Image
 import PIL.ExifTags
-import csv
+import json
 
 def readInfo(filename):
     img = PIL.Image.open(filename)
@@ -29,6 +29,17 @@ def parseLocationInfo(ExifDict):
         print("Oopsie")
     return toReturn
 
+def convertToJSON(locationInfo):
+    loc = {}
+    loc['NDegree'] = locationInfo[0][0]
+    loc['NMin'] = locationInfo[0][1]
+    loc['NSec'] = locationInfo[0][2]
+    loc['WDegree'] = locationInfo[1][0]
+    loc['WMin'] = locationInfo[1][1]
+    loc['Wsec'] = locationInfo[1][2]
+    jsonString = json.dumps(loc)
+    return jsonString
+
 def main():
     filename = "random.jpg"
     #filename = input("Please enter a filename: ")
@@ -37,7 +48,8 @@ def main():
     except TypeError as e:
         print(e)
         print("Error: No Exif data found")
-    print(parseLocationInfo(fileInfo))
+    locInfo = parseLocationInfo(fileInfo)
+    print(convertToJSON(locInfo))
 
 main()
 
