@@ -7,8 +7,22 @@ Generating maps and timelines from image metadata.
 ## Dependencies
 
 
+#### Map
+**Node.js**
+
+
+**React.js**
+
+
+**Babel.js**
+
+
+**Webpack**
+
+
+
 ## Usage
-**Starting the server ** (Requires node)
+**Starting the server** (Requires node)
 
 Navigate to \src\main\web\js, and run `node server.js`.
 
