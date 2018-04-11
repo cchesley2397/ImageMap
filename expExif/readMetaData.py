@@ -12,11 +12,21 @@ def readInfo(filename):
     return exif
 
 def parseLocationInfo(ExifDict):
-    toReturn = ""
+    toReturn = []
     try:
         LocationDict = ExifDict["GPSInfo"]
+        assert(LocationDict[1] == "N")
+        assert(LocationDict[3] == "W")
+        northArray = []
+        westArray =[]
+        for tup in LocationDict[2]:
+            northArray.append(tup[0]/tup[1])
+        for tup in LocationDict[4]:
+            westArray.append(tup[0]/tup[1])
+        toReturn.append(northArray)
+        toReturn.append(westArray)
     except:
-        pass #Cry
+        print("Oopsie")
     return toReturn
 
 def main():
@@ -27,8 +37,7 @@ def main():
     except TypeError as e:
         print(e)
         print("Error: No Exif data found")
-    for key in fileInfo:
-        print(str(key) + ": " + str(fileInfo[key]))
+    print(parseLocationInfo(fileInfo))
 
 main()
 
