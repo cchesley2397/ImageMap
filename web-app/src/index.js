@@ -5,6 +5,5 @@ import App from './App';
 import MapContainer from './MapContainer';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-ReactDOM.render(<MapContainer />, document.getElementById('map'));
+ReactDOM.render(<MapContainer />, document.getElementById('root'));
 registerServiceWorker();

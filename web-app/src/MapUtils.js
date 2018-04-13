@@ -1,5 +1,5 @@
-import * as L from "leaflet";
-
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 /*
 Required functions:
@@ -11,12 +11,7 @@ Render the leaflet map with the dataset input
 
 
 
-function loadMapData() {
-
-
-
-
-}
+//function loadMapData() {}
 
 
 var ImageMap = L.Map.extend({
@@ -30,24 +25,20 @@ var ImageMap = L.Map.extend({
             return div;
         };
         title.addTo(self);
-        },
-
-
-
-
-
-    });
+    }
+});
 
 
 function createMap() {
+    // initialize
+    let Map = new ImageMap("Map", {zoomControl: false}).setView([0, 0], 2, {
+        worldCopyJump: true});
 
-    let Map = L.map("Map", {zoomControl: false}).setView([0, 0], 2, {
-        worldCopyJump: true
-    });
 
     //new L.Control.Zoom({position: 'topright'}).addTo(Map);
 
-    var mapTiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    // initialize the map tile layer
+    let mapTiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © ' +
         '<a href="http://mapbox.com">Mapbox</a>',
@@ -58,6 +49,10 @@ function createMap() {
         accessToken: 'pk.eyJ1IjoiY2NoZXNsZXkyMzk3IiwiYSI6ImNqYTR4endzNTMxY2sycXFyemduaXIxM3EifQ.gvT6NeQ0Q6ykY8PVzMhTTw'
     });
 
+    // add tile layer to map
     Map.addLayer(mapTiles);
 
 }
+
+
+createMap();
