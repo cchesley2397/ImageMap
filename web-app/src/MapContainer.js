@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
-//import './App.css';
+import './MapContainer.css';
 
 class MapContainer extends Component {
     render() {
         return (
             <div className="MapContainer">
-                <div id="Map" class="leafletMap"></div>
+                <div id="Map" className="leafletMap"/>
             </div>
         );
     }

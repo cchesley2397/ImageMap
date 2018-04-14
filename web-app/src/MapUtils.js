@@ -11,7 +11,7 @@ Render the leaflet map with the dataset input
 
 
 
-//function loadMapData() {}
+//function loadMapDcata() {}
 
 
 
