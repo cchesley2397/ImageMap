@@ -14,25 +14,14 @@ Render the leaflet map with the dataset input
 //function loadMapData() {}
 
 
-var ImageMap = L.Map.extend({
-
-    displayTitle : function(titleText) {
-        let title = L.control({position: 'topleft'});
-        title.onAdd = function(self,) {
-            var div = L.DomUtil.create('div', 'map title');
-            div.innerHTML +=
-                ('<i style="background:' + '#9d9d9d' + '"></i> ' + titleText);
-            return div;
-        };
-        title.addTo(self);
-    }
-});
 
 
-function createMap() {
+export function createMap() {
     // initialize
-    let Map = new ImageMap("Map", {zoomControl: false}).setView([0, 0], 2, {
-        worldCopyJump: true});
+    let Map = L.map("Map").setView([0, 0], 2,);
+
+    //new ImageMap("Map", {zoomControl: false}).setView([0, 0], 2, {
+    //    worldCopyJump: true});
 
 
     //new L.Control.Zoom({position: 'topright'}).addTo(Map);
@@ -53,6 +42,3 @@ function createMap() {
     Map.addLayer(mapTiles);
 
 }
-
-
-createMap();

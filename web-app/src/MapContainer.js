@@ -5,8 +5,8 @@ import React, { Component } from 'react';
 class MapContainer extends Component {
     render() {
         return (
-            <div className="leafletMap">
-
+            <div className="MapContainer">
+                <div id="Map" class="leafletMap"></div>
             </div>
         );
     }
