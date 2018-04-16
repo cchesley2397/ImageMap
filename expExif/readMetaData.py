@@ -39,7 +39,7 @@ def convertToJSON(locationInfo, fileName):
     loc['NSec'] = locationInfo[0][2]
     loc['WDegree'] = locationInfo[1][0]
     loc['WMin'] = locationInfo[1][1]
-    loc['Wsec'] = locationInfo[1][2]
+    loc['WSec'] = locationInfo[1][2]
     data['LocationData'] = loc
     jsonString = json.dumps(data)
     return jsonString

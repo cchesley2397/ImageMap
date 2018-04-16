@@ -4,11 +4,19 @@ import './index.css';
 import MapContainer from './MapContainer';
 import HeaderContainer from './HeaderContainer';
 import registerServiceWorker from './registerServiceWorker';
-import {createMap} from "./MapUtils";
+import {createMap, loadMapData, renderMap} from "./MapUtils";
 
 
 ReactDOM.render(<HeaderContainer />, document.getElementById('headerRoot'));
 ReactDOM.render(<MapContainer />, document.getElementById('mapRoot'));
-createMap();
+
+
+//temp config
+let inputPath = '../../data';
+let dataJSON = 'metadata.json';
+//
+
+
+renderMap(function() {createMap()}, function() {loadMapData(inputPath, dataJSON)} );
 
 registerServiceWorker();

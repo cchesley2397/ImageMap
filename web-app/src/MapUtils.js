@@ -4,25 +4,42 @@ import 'leaflet/dist/leaflet.css';
 /*
 Required functions:
 
-Load a local json into a dataset compatible with leaflet
+Load a local data into a dataset compatible with leaflet
 
 Render the leaflet map with the dataset input
  */
 
 
-//
-// export function loadMapData() {
-//
-//
-// }
-//
-//
-//
-//
-// function dmsToDD(dms) {
-//     var degrees = dms.degrees;
-// }
 
+export function loadMapData(inputPath, dataFileName) {
+    let json = JSON.parse(fs.readFileSync(inputPath + dataFileName, 'utf8'));
+
+    // array of LatLong objects
+    let imageCoords = [];
+
+    for (let key in json) {
+        if (json.hasOwnProperty(key)) {
+            let c = key.LocationData;
+            imageCoords.add(dmsToDD(c.NDegree, c.NMin, c.NSec, c.WDegree, c.WMin, c.WSec));
+
+        }
+    }
+}
+
+
+
+
+function dmsToDD(nD, nM, nS, wD, wM, wS) {
+    let degrees;
+}
+
+
+
+
+
+export function renderMap(Map, data) {
+
+}
 
 export function createMap() {
     // initialize
@@ -48,5 +65,5 @@ export function createMap() {
 
     // add tile layer to map
     Map.addLayer(mapTiles);
-
+    return Map;
 }
