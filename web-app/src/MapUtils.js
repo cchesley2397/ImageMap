@@ -10,10 +10,18 @@ Render the leaflet map with the dataset input
  */
 
 
-
-//function loadMapDcata() {}
-
-
+//
+// export function loadMapData() {
+//
+//
+// }
+//
+//
+//
+//
+// function dmsToDD(dms) {
+//     var degrees = dms.degrees;
+// }
 
 
 export function createMap() {
