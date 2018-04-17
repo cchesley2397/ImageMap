@@ -1,6 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
+import data from '../../data/';
 /*
 Required functions:
 
@@ -12,25 +12,28 @@ Render the leaflet map with the dataset input
 
 
 export function loadMapData(inputPath, dataFileName) {
-    let json = JSON.parse(fs.readFileSync(inputPath + dataFileName, 'utf8'));
+    let json = JSON.parse(data);
 
     // array of LatLong objects
-    let imageCoords = [];
+    let imageLatLongs = [];
 
     for (let key in json) {
         if (json.hasOwnProperty(key)) {
             let c = key.LocationData;
-            imageCoords.add(dmsToDD(c.NDegree, c.NMin, c.NSec, c.WDegree, c.WMin, c.WSec));
-
+            imageLatLongs.add(dmsToDD(c.NDegree, c.NMin, c.NSec, c.WDegree, c.WMin, c.WSec));
         }
     }
+
+    return imageLatLongs;
 }
 
 
 
 
 function dmsToDD(nD, nM, nS, wD, wM, wS) {
-    let degrees;
+    let latDegrees = nD + (((nM * 60) + nS) / (60*60));
+    let longDegrees = wD + (((wM * 60) + wS) / (60*60));
+    return new L.LatLng(latDegrees, longDegrees);
 }
 
 
@@ -38,7 +41,24 @@ function dmsToDD(nD, nM, nS, wD, wM, wS) {
 
 
 export function renderMap(Map, data) {
+    let markers = [];
 
+    let queryMarkerOptions = {
+        radius: 7,
+        fillColor: "#42e5f4",
+        color: 'black',
+        weight: 1,
+        opacity: .5,
+        fillOpacity: 0.5
+    };
+
+    for (let latLong in data) {
+        if (data.hasOwnProperty(latLong)) {
+            markers.add(new L.CircleMarker(latLong, queryMarkerOptions);
+        }
+    }
+
+    Map.addLayer(markers)
 }
 
 export function createMap() {
