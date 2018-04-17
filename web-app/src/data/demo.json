@@ -1,0 +1,50 @@
+{
+    "0": {
+        "LocationData": {
+            "NDegree": 43.0,
+            "NMin": 5.0,
+            "NSec": 17.39,
+            "WDegree": -77.0,
+            "WMin": 40.0,
+            "WSec": 6.72
+        },
+        "DateTime": "2018:04:08 18:31:32",
+        "FileName": "watch.jpg"
+    },
+    "1": {
+        "LocationData": {
+            "NDegree": 43.0,
+            "NMin": 5.0,
+            "NSec": 10.684,
+            "WDegree": -77.0,
+            "WMin": 40.0,
+            "WSec": 39.313
+        },
+        "DateTime": "2018:04:08 18:54:34",
+        "FileName": "coax.jpg"
+    },
+    "2": {
+        "LocationData": {
+            "NDegree": 43.0,
+            "NMin": 5.0,
+            "NSec": 11.432,
+            "WDegree": -77.0,
+            "WMin": 40.0,
+            "WSec": 25.982
+        },
+        "DateTime": "2018:04:07 14:32:10",
+        "FileName": "tree.jpg"
+    },
+    "3": {
+        "LocationData": {
+            "NDegree": 43.0,
+            "NMin": 5.0,
+            "NSec": 10.200,
+            "WDegree": -77.0,
+            "WMin": 40.0,
+            "WSec": 39.132
+        },
+        "DateTime": "2018:04:7 18:52:31",
+        "FileName": "building.jpg"
+    }
+}

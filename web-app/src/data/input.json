@@ -1,3 +1,44 @@
 {
-  "LocationData": {"WMin": 39.0, "NDegree": 43.0, "NMin": 5.0, "WSec": 42.6059, "NSec": 7.7431, "WDegree": 77.0}, "FileName": "random.jpg"
+    "0":
+    {
+        "LocationData":
+        {
+            "NSec": 20.7431,
+            "NDegree": 20.0,
+            "WDegree": 40.0,
+            "NMin": 5.0,
+            "WMin": 39.0,
+            "WSec": 42.6059
+        },
+        "DateTime": "2018:04:08 18:31:32",
+        "FileName": "random3.jpg"
+    },
+    "1":
+    {
+        "LocationData":
+        {
+            "NSec": 7.7431,
+            "NDegree": 43.0,
+            "WDegree": 77.0,
+            "NMin": 5.0,
+            "WMin": 39.0,
+            "WSec": 42.6059
+        },
+        "DateTime": "2018:04:08 18:31:25",
+        "FileName": "random.jpg"
+    },
+    "2":
+    {
+        "LocationData":
+        {
+            "NSec": 7.7431,
+            "NDegree": 43.0,
+            "WDegree": 77.0,
+            "NMin": 5.0,
+            "WMin": 39.0,
+            "WSec": 42.6059
+        },
+        "DateTime": "2018:04:08 18:31:28",
+        "FileName": "random2.jpg"
+    }
 }
