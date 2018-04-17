@@ -54,7 +54,7 @@ export function renderMap(Map, data) {
 
     for (let latLong in data) {
         if (data.hasOwnProperty(latLong)) {
-            markers.add(new L.CircleMarker(latLong, queryMarkerOptions);
+            markers.add(new L.CircleMarker(latLong, queryMarkerOptions));
         }
     }
 
