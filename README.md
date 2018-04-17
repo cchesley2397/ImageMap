@@ -48,9 +48,11 @@ Web application design and implementation
 
 **Andrew Gunkle**
 
-(email)
+arg5173@rit.edu
 
-(contribution)
+Documentation, Test Files
+
+***
 
 **Justin Ferrari**
 
