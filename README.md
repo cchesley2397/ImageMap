@@ -40,9 +40,9 @@ Web application design and implementation
 
 **Liam Decker**
 
-(email)
+ldecker499@gmail.com
 
-(contribution)
+EXIF data reader
 
 ***
 
