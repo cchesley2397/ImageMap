@@ -5,6 +5,12 @@ import glob
 import sys
 import os
 
+#input:  The path and name of a file
+#output: Dictionary containing EXIF data
+#
+#readInfo extracts all the EXIF data from
+#a specified file and returns it within
+#a dictionary 
 def readInfo(filename):
     img = PIL.Image.open(filename)
     exif = {
@@ -16,6 +22,14 @@ def readInfo(filename):
     exif['File Name'] = name[-1]
     return exif
 
+#input:  Dictionary containing EXIF data
+#output: List containing location data within two Dictionaries
+#
+#parseLocationInfo extracts the location
+#data from a a dictionary conatining EXIF
+#data and stores it in as a 2D array
+#One for North coordinates
+#and one for West coordinates
 def parseLocationInfo(ExifDict):
     toReturn = []
     try:
@@ -34,6 +48,15 @@ def parseLocationInfo(ExifDict):
         print("Oopsie")
     return toReturn
 
+#input:  There are three inputs to this function
+#         locationInfo - A 2D array with location data
+#         timeInfo - A string with the files time and date
+#         fileName - The name of the file
+#output: Dictionary containing the provided data
+#
+#wrap takes three inputs and stores them within a dictionary.
+#this dicitionary is later going to be stored with others in
+#a larger dictionary that will be converted to JSON
 def wrap(locationInfo, timeInfo, fileName):    
     data = {}
     data['FileName'] = fileName
@@ -48,6 +71,11 @@ def wrap(locationInfo, timeInfo, fileName):
     data['DateTime'] = timeInfo
     return data
 
+#input:  Dictionary containing other dictionaries with specified EXIF data
+#output: JSON formated string
+#
+#convertToJSON takes a dictionary and converts its contents
+#into a JSON formated string
 def convertToJSON(JSONDict):
     FinalJSON = {}
     x = 0
@@ -57,17 +85,28 @@ def convertToJSON(JSONDict):
     jsonString = json.dumps(FinalJSON)
     return jsonString
 
+#input:  The absolute path to a dictionary containing JPGs
+#output: JSON formated string
+#
+#This program parses a dictionary for JPGs. It then extracts
+#the EXIF data and parses it to find the location and time
+#information. Once it has this it stores it in a dictionary 
+#along with the file name. This dictionary is then converted 
+#into a JSON formated string to be used by another application.
 def main():
+    #check if an arguement was give
     if(len(sys.argv) > 1):
         path = sys.argv[1]
     else:
+	#if no arguement given request a path
         path = input("Please enter path to files: ")
     
-    files = []
-
+#obtain a list of JPGs from the specified directory
+    files = [] 
     for filename in glob.glob(os.path.join(path, '*.jpg')):
         files.append(filename)
 
+#Extract and store the EXIF data for each file
     try:
         fileInfo = {}
         for image in files:
@@ -77,14 +116,17 @@ def main():
         print(e)
         print("Error: No Exif data found")
 
+#Extract and store location information
     locInfo = {}
     for exifData in fileInfo:      
         locInfo[fileInfo[exifData]['File Name']] = parseLocationInfo(fileInfo[exifData])
 
+#Extract and store time information
     timeInfo = {}
     for exifData in fileInfo:
         timeInfo[fileInfo[exifData]['File Name']] = fileInfo[exifData]['DateTime']    
-    
+
+#Store all extracted data in a single dictionary and convert to JSON formated string
     JSONStrings = {}
     for loc in locInfo:
         JSONStrings[loc] = wrap(locInfo[loc], timeInfo[loc], loc)
