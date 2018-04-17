@@ -1,6 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import data from '../../data/';
+import data from './data/input.json';
 /*
 Required functions:
 
@@ -61,7 +61,7 @@ export function renderMap(Map, data) {
     Map.addLayer(markers)
 }
 
-export function createMap() {
+export function createMap(callback) {
     // initialize
     let Map = L.map("Map").setView([0, 0], 2,);
 
@@ -85,5 +85,5 @@ export function createMap() {
 
     // add tile layer to map
     Map.addLayer(mapTiles);
-    return Map;
+    callback(Map);
 }

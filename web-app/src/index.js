@@ -17,6 +17,6 @@ let dataJSON = 'metadata.json';
 //
 
 
-renderMap(function() {createMap()}, function() {loadMapData(inputPath, dataJSON)} );
+renderMap(function(callback) {createMap()}, function() {loadMapData(inputPath, dataJSON)} );
 
 registerServiceWorker();
