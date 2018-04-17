@@ -1,7 +1,9 @@
 import PIL.Image
 import PIL.ExifTags
 import json
+import glob
 import sys
+import os
 
 def readInfo(filename):
     img = PIL.Image.open(filename)
@@ -10,6 +12,8 @@ def readInfo(filename):
         for k, v in img._getexif().items()
         if k in PIL.ExifTags.TAGS
     }
+    name = filename.split('/')
+    exif['File Name'] = name[-1]
     return exif
 
 def parseLocationInfo(ExifDict):
@@ -30,7 +34,7 @@ def parseLocationInfo(ExifDict):
         print("Oopsie")
     return toReturn
 
-def convertToJSON(locationInfo, fileName):
+def wrap(locationInfo, timeInfo, fileName):    
     data = {}
     data['FileName'] = fileName
     loc = {}
@@ -41,22 +45,51 @@ def convertToJSON(locationInfo, fileName):
     loc['WMin'] = locationInfo[1][1]
     loc['Wsec'] = locationInfo[1][2]
     data['LocationData'] = loc
-    jsonString = json.dumps(data)
+    data['DateTime'] = timeInfo
+    return data
+
+def convertToJSON(JSONDict):
+    FinalJSON = {}
+    x = 0
+    for fileData in JSONDict:
+        FinalJSON[x] = JSONDict[fileData]
+        x += 1
+    jsonString = json.dumps(FinalJSON)
     return jsonString
 
 def main():
     if(len(sys.argv) > 1):
-        filename = sys.argv[1]
+        path = sys.argv[1]
     else:
-        filename = input("Please enter a filename: ")
+        path = input("Please enter path to files: ")
+    
+    files = []
+
+    for filename in glob.glob(os.path.join(path, '*.jpg')):
+        files.append(filename)
+
     try:
-        fileInfo = readInfo(filename)
+        fileInfo = {}
+        for image in files:
+            fileInfo[image] = readInfo(image)
+        
     except TypeError as e:
         print(e)
         print("Error: No Exif data found")
-    locInfo = parseLocationInfo(fileInfo)
-    print(convertToJSON(locInfo, filename))
 
+    locInfo = {}
+    for exifData in fileInfo:      
+        locInfo[fileInfo[exifData]['File Name']] = parseLocationInfo(fileInfo[exifData])
+
+    timeInfo = {}
+    for exifData in fileInfo:
+        timeInfo[fileInfo[exifData]['File Name']] = fileInfo[exifData]['DateTime']    
+    
+    JSONStrings = {}
+    for loc in locInfo:
+        JSONStrings[loc] = wrap(locInfo[loc], timeInfo[loc], loc)
+
+    print(convertToJSON(JSONStrings))
 main()
 
 
