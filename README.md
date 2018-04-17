@@ -56,8 +56,8 @@ Documentation, Test Files
 
 **Justin Ferrari**
 
-(email)
+jxf9385@rit.edu
 
-(contribution)
+EXIF data reader
 
 
