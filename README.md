@@ -29,7 +29,7 @@ Install Pillow using pip.
 
 **Extracting the Metadata**
 
-Navigate to the folder containing [readMetaData.py](expEXIF/readMetaData.py)
+Navigate to the folder containing [readMetaData.py](expExif/readMetaData.py)
 
 **Windows:** `readMetaData.py <\Absolute\Path\To\Directory>`
 
