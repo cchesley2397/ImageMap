@@ -3,11 +3,16 @@ Generating maps and timelines from image metadata.
 
 ## Installation
 
+### Web Application
+
+With Node Package Manager installed, navigate to the **ImageMap\web-app** directory and run `npm install`.
+This will install the dependencies found in **package.json**.
+
 
 ## Dependencies
 
 
-#### Map
+### Web Application
 **Node.js**
 
 
@@ -22,10 +27,12 @@ Generating maps and timelines from image metadata.
 
 
 ## Usage
-**Starting the server** (Requires node)
 
-Navigate to \src\main\web\js, and run `node server.js`.
+### Web Application
 
+Navigate to the **ImageMap\web-app** directory and run `npm start`.
+This should open a browser window with the map.
+If it does not open automatically, navigate to **localhost:3000** in a web browser.
 
 
 ## Team Members
