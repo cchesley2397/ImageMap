@@ -27,6 +27,13 @@ This will install the dependencies found in **package.json**.
 
 
 ## Usage
+Download the .zip or clone the repo using `git clone https://github.com/cchesley2397/ImageMap.git`.
+
+Install Pillow using pip.
+
+**Extracting the Metadata**
+
+
 **Starting the server** (Requires node)
 
 ### Web Application
