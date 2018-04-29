@@ -27,6 +27,7 @@ Download the .zip or clone the repo using `git clone https://github.com/cchesley
 Install Pillow using pip.
 
 **Extracting the Metadata**
+
 Navigate to the folder containing readMetaData.py
 
 Windows: readMetaData.py \Absolute\Path\To\Directory
