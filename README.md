@@ -27,6 +27,7 @@ This will install the dependencies found in **package.json**.
 
 
 ## Usage
+**Starting the server** (Requires node)
 
 ### Web Application
 
