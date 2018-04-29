@@ -22,6 +22,9 @@ Generating maps and timelines from image metadata.
 
 
 ## Usage
+**Extracting the Metadata**
+
+
 **Starting the server** (Requires node)
 
 Navigate to \src\main\web\js, and run `node server.js`.
