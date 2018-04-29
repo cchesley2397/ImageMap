@@ -31,9 +31,9 @@ Install Pillow using pip.
 
 Navigate to the folder containing readMetaData.py
 
-*Windows:* readMetaData.py \Absolute\Path\To\Directory
+*Windows:* readMetaData.py <\Absolute\Path\To\Directory>
 
-*Linux:* Python3 readMetaData.py \Absolute\Path\To\Directory
+*Linux:* Python3 readMetaData.py </Absolute/Path/To/Directory>
 
 
 
