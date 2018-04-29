@@ -22,6 +22,10 @@ Generating maps and timelines from image metadata.
 
 
 ## Usage
+Download the .zip or clone the repo using `git clone https://github.com/cchesley2397/ImageMap.git`.
+
+Install Pillow using pip.
+
 **Extracting the Metadata**
 
 
